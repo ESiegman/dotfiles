@@ -1,0 +1,174 @@
+{
+  "layer": "top",
+  "modules-left": [
+     "custom/arch", 
+     "hyprland/workspaces", 
+     "cpu",
+     "memory",
+     "custom/prev",
+     "custom/playerctl",
+     "custom/next"
+  ],
+
+  "modules-center": [
+     "clock"
+  ],
+
+  "modules-right": [
+    "custom/launcher", 
+    "backlight",
+    "pulseaudio",
+    "bluetooth",
+    "network",
+    "battery",
+    "power-profiles-daemon",
+    "keyboard-state",
+    "tray",
+    "temperature",
+    "idle_inhibitor"
+  ],
+
+  "custom/arch": {
+    "format": " ",
+    "tooltip": false,
+    "on-click": "wlogout"
+  },
+
+  "hyprland/workspaces": {
+    "format": "{name} {icon}",
+    "tooltip": false,
+    "all-outputs": true,
+    "format-icons": {
+      "active": "",
+      "default": ""
+    }
+  },
+
+  "clock": {
+  "format": "<span color='#b4befe'>  </span>{:%m-%d %I:%M %p}"
+  },
+
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "<span color='#b4befe'>{icon}</span>  {percent}%",
+    "format-icons": ["", "", "", "", "", "", "", "", ""]
+  },
+
+  "pulseaudio": {
+    "format": "<span color='#b4befe'>{icon}</span>  {volume}%",
+    "format-muted": "",
+    "tooltip": false,
+    "format-icons": {
+      "headphone": " ",
+      "default": ["", "", "󰕾", "󰕾", "󰕾", "", "", ""]
+    },
+    "scroll-step": 1,
+    "on-click": "pavucontrol"
+  },
+
+  "bluetooth": {
+    "format": "<span color='#b4befe'></span> {status}",
+    "format-disabled": "", // an empty format will hide the module
+    "format-connected": "<span color='#b4befe'></span> {num_connections}",
+    "tooltip-format": "{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}   {device_address}",
+    "on-click": "bluetuith"
+  },
+
+  "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{essid} ({signalStrength}%)  ",
+        "format-ethernet": "Connected  ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "on-click-right": "iwgtk"
+   },
+
+  "battery": {
+    "format": "<span color='#b4befe'>{icon} </span> {capacity}%",
+    "format-icons": ["  ", "  ", "  ", "  ", "  "],
+    "format-charging": "<span color='#b4befe'>{icon}</span> {capacity}%",
+    "tooltip": false
+  },
+/*
+  "custom/launcher":{
+        "format": "",
+        "on-click": "anyrun",
+        "on-click-right": "killall rofi"
+  },
+*/
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    }
+  },
+
+ "custom/playerctl": {
+    "format": "{}",
+    "exec": "$HOME/.local/lib/waybar/playerctl.sh 2> /dev/null",
+    "tooltip": false,
+    "interval": 1,
+    "on-click": "playerctl play-pause"
+  },
+
+  "custom/prev": {
+    "format": "",
+    "on-click": "playerctl previous"
+  },
+
+  "custom/next": {
+    "format": "",
+    "on-click": "playerctl next"
+  },
+
+  "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": " {name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+   },
+
+   "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": " ",
+            "deactivated": " "
+        }
+   },
+
+   "tray": {
+        "icon-size": 20,
+        "spacing": 10
+    },
+
+    "cpu": {
+        "format": "{usage}% CPU",
+        "tooltip": false
+    },
+
+    "memory": {
+        "format": "{}% RAM"
+    },
+
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": "{temperatureC}°C"
+    }
+  
+}
+
+
