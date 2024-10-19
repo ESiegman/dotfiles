@@ -25,7 +25,7 @@ install_packages() {
     # List of required packages
     local packages=("cava" "hyprland" "kitty" "neovim" "waybar" "wlogout" "wofi" 
                     "zsh" "git" "curl" "pywal" "firefox" "pywalfox" "fzf" "bat"
-                    "exa" "btop" 
+                    "exa" "btop" "ranger"
                     )
 
     # Loop through each package and install it if not already installed
