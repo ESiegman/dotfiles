@@ -65,8 +65,8 @@ return {
                },
                {
                   icon = "  ", -- Icon for opening dotfiles
-                  desc = "Open Personal dotfiles    ",
-                  action = "edit ~/.config/nvim/init.lua",
+                  desc = "Open Neovim dotfiles    ",
+                  action = "edit ~/.config/nvim",
                   key = "d"
                },
             },

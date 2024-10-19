@@ -18,3 +18,4 @@ require("vim-settings")
 -- Setup plugins
 require("lazy").setup("plugins")
 
+

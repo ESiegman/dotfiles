@@ -2,8 +2,8 @@
 vim.opt.number = true          -- Show line numbers
 vim.opt.relativenumber = true  -- Relative line numbers
 vim.opt.wrap = true            -- Enable line wrapping
-vim.opt.tabstop = 3            -- Number of spaces tabs count for
-vim.opt.shiftwidth = 3         -- Number of spaces for each indentation level
+vim.opt.tabstop = 4            -- Number of spaces tabs count for
+vim.opt.shiftwidth = 4         -- Number of spaces for each indentation level
 vim.opt.expandtab = true       -- Convert tabs to spaces
 vim.opt.termguicolors = true   -- Enable true colors
 vim.opt.cursorline = true      -- Highlight the current line
