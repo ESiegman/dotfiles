@@ -22,7 +22,7 @@ window {
   font-family: "JetBrains Mono";
   background-color: $BG_COLOR;
   border-radius: 8px;
-  opacity: 0.90;
+  opacity: 1;
 }
 
 #outer-box {

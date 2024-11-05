@@ -28,4 +28,5 @@ waybar &
 ~/system-scripts/update-discord-theme.sh
 
 # Update wofi theme
+pkill wofi
 ~/system-scripts/update-wofi-theme.sh

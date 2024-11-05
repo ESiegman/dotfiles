@@ -1,0 +1,72 @@
+* {
+  border: none;
+  font-family: 'Fira Code', 'Symbols Nerd Font Mono';
+  font-size: 15px;
+  font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
+  min-height: 1px;
+  margin-bottom: 0;
+}
+
+window#waybar {
+  background: transparent;
+}
+
+/* Custom styling for modules on the left */
+#custom-arch, #workspaces, #custom-media, #custom-launcher, #custom-playerctl, #custom-prev, #custom-next, #cpu, #memory {
+  border-radius: 10px;
+  background-color: #B5B9CA;
+  color: #030509;
+  margin-top: 15px;
+  margin-right: 15px;
+  padding-top: 1px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#workspaces button {
+  background: #B5B9CA;
+  color: #030509;
+}
+
+/* Custom styling for modules on the right */
+#clock, #backlight, #pulseaudio, #bluetooth, #network, #battery, #power-profiles-daemon, #custom-power, #idle_inhibitor, #temperature, #tray {
+  border-radius: 10px;
+  background-color: #B5B9CA;
+  color: #030509;
+  margin-top: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-right: 15px;
+}
+
+/* Remove right margin and border on arch, bluetooth, cpu, and brightness */
+#custom-arch, #bluetooth, #backlight, #cpu {
+  margin-right: 0;
+  border-radius: 10px 0 0 10px;
+
+}
+
+/* Remove left margin and border on audio, network, ram, and workspaces */
+#pulseaudio, #network, #workspaces, #memory {
+  margin-left: 0;
+  border-radius: 0 10px 10px 0;
+}
+
+#custom-prev, #custom-playerctl, #custom-next {
+  border-radius: 0;
+  margin-left: 0;
+  margin-right: 0;
+  border-left: 1px solid #B5B9CA;
+}
+
+#custom-arch {
+  margin-left: 15px;
+}
+
+#custom-prev {
+  border-radius: 10px 0 0 10px;
+}
+
+#custom-next {
+  border-radius: 0 10px 10px 0;
+}

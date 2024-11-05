@@ -1,13 +1,10 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
 export __GLX_VENDOR_LIBRARY_NAME=nvidia
 export GBM_BACKEND=nvidia-drm
 export WLR_NO_HARDWARE_CURSORS=1
-
 # Set ZSH theme to Powerlevel10k
 ZSH_THEME="powerlevel10k/powerlevel10k"
-
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -47,7 +44,7 @@ alias edit-script='nvim ~/.zshrc'
 alias script-done='source ~/.zshrc'
 alias github='github-desktop'
 alias edit-startup='sudo nvim /etc/systemd/system/startup-script.sh'
-alias steam='prime-run steam'
+alias steam='prime-run steam --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-features=WebRTCPipeWireCapturer' 
 alias chatgpt='chat-gpt'
 alias chrome='google-chrome-stable'
 alias minecraft='prime-run prismlauncher'
@@ -59,7 +56,6 @@ alias chatgpt='openai-chatgpt-nativefier --enable-features=UseOzonePlatform --oz
 alias discord='vesktop --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-features=WebRTCPipeWireCapturer' 
 alias cat='bat'
 alias ls='exa --icons --tree --level=2 --color=always --group-directories-first --git'
-alias config-sys='cd; ./config-script.sh'
 alias fastfetch='fastfetch --logo ~/.config/fastfetch/custom_logo.txt'
 
 # Custom Functions
@@ -79,7 +75,7 @@ function custom-commands-list {
    echo "13. virt-env     - Activate/Deactivate Python Virtual Environment"
    echo "14. chrome       - Open Google Chrome"
    echo "15. discord      - Open Discord"
-   echo "15. config-sys   - Run system configuration script"
+   echo "15. config-sys   - Run system configuration script(missing)"
    echo "16. update-sys   - Update system packages"
    echo "17. run-valgrind - Run Valgrind on a C/C++ file"
    echo "18. run-matlab-file - Run a MATLAB script file"
@@ -322,11 +318,11 @@ function run-matlab-file() {
    # Run MATLAB without GUI
    ./matlab -nosplash -nodesktop -r "run('$script_file');"
    
-   cd directory
+   cd $directory
 }
 
 # Function to open MATLAB CLI
-function open-matlab-cli() {
+function run-matlab-cli() {
    cd ~/matlab/bin
    ./matlab -nodisplay -nosplash -nodesktop
 }
@@ -390,7 +386,7 @@ git-configs() {
 }
 
 
-cd ~
+
 
 fastfetch
 task list
