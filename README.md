@@ -21,7 +21,7 @@
    ./install.sh
    ```
 ## Screenshots
-![image](https://github.com/user-attachments/assets/9ff09c9e-450b-4b8c-9736-2b5b067ab62f)
-![image](https://github.com/user-attachments/assets/65c11349-eb18-4de5-8c3b-f68d4010aa41)
+![image](https://github.com/user-attachments/assets/f40d3d9f-6298-4361-a302-8265c4294a39)
+
 
 *THIS IS STILL IN DEVELOPMENT INSTALL AT YOUR OWN RISK
