@@ -5,13 +5,7 @@ export GBM_BACKEND=nvidia-drm
 export WLR_NO_HARDWARE_CURSORS=1
 # Set ZSH theme to Powerlevel10k
 ZSH_THEME="powerlevel10k/powerlevel10k"
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
 
 # Set the PATH
 export PATH="$HOME/.local/bin:$PATH"
@@ -56,7 +50,9 @@ alias chatgpt='openai-chatgpt-nativefier --enable-features=UseOzonePlatform --oz
 alias discord='vesktop --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-features=WebRTCPipeWireCapturer' 
 alias cat='bat'
 alias ls='exa --icons --tree --level=2 --color=always --group-directories-first --git'
-alias fastfetch='fastfetch --logo ~/.config/fastfetch/custom_logo.txt'
+alias fastfetch-png='fastfetch --logo ~/.config/fastfetch/fastfetch.png --logo-height 16'
+alias fastfetch-ascii='fastfetch --logo ~/.config/fastfetch/custom_logo.txt'
+alias git-configs='cd ~/system-scripts && ./config-sync.sh'
 
 # Custom Functions
 function custom-commands-list {
@@ -333,61 +329,6 @@ function matlab() {
    ./matlab
 }
 
-# Function to automate the git-config process
-git-configs() {
-   # Directory for your GitHub configs repo
-   REPO_DIR="$HOME/arch-linux-configs"
-    
-   # Check if we're in the correct directory
-   if [ ! -d "$REPO_DIR" ]; then
-      echo "Repository directory $REPO_DIR does not exist. Exiting."
-      return 1
-   fi
-    
-   # Check if sync-configs.sh exists
-   SYNC_SCRIPT="$REPO_DIR/sync-configs.sh"
-   if [ ! -f "$SYNC_SCRIPT" ]; then
-       echo "sync-configs.sh not found at $SYNC_SCRIPT. Exiting."
-       return 1
-   fi
-    
-   # Prompt user for commit or fetch
-   echo "Do you want to commit or fetch configuration files? (commit/fetch)"
-   read -r action
-
-   if [[ "$action" == "commit" ]]; then
-      # Prompt for a commit message if committing
-      echo "Enter a commit message:"
-      read -r commit_message
-
-      if [ -z "$commit_message" ]; then
-         echo "Commit message cannot be empty. Exiting."
-         return 1
-      fi
-        
-      # Run sync-configs.sh in commit mode
-      "$SYNC_SCRIPT" commit
-
-      # Navigate to the repository and push changes
-      cd "$REPO_DIR" || return 1
-      git add nvim/ hypr/ .zshrc .gitconfig
-      git commit -m "$commit_message"
-      git push origin main
-      echo "Changes committed and pushed successfully."
-        
-   elif [[ "$action" == "fetch" ]]; then
-      # Run sync-configs.sh in fetch mode
-      "$SYNC_SCRIPT" fetch
-      echo "Fetched configuration files from repository."
-   else
-      echo "Invalid action. Please choose either 'commit' or 'fetch'."
-      return 1
-   fi
-}
-
-
-
-
-fastfetch
+fastfetch --logo ~/.config/fastfetch/fastfetch.png --logo-height 16 
 task list
 

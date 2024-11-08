@@ -1,14 +1,14 @@
 -- General Settings
-vim.opt.number = true          -- Show line numbers
-vim.opt.relativenumber = true  -- Relative line numbers
-vim.opt.wrap = true            -- Enable line wrapping
-vim.opt.tabstop = 4            -- Number of spaces tabs count for
-vim.opt.shiftwidth = 4         -- Number of spaces for each indentation level
-vim.opt.expandtab = true       -- Convert tabs to spaces
-vim.opt.termguicolors = true   -- Enable true colors
-vim.opt.cursorline = true      -- Highlight the current line
-vim.opt.scrolloff = 7          -- Lines to keep above/below cursor
-vim.opt.sidescrolloff = 7      -- Columns to keep left/right of cursor
+vim.opt.number = true         -- Show line numbers
+vim.opt.relativenumber = true -- Relative line numbers
+vim.opt.wrap = true           -- Enable line wrapping
+vim.opt.tabstop = 4           -- Number of spaces tabs count for
+vim.opt.shiftwidth = 4        -- Number of spaces for each indentation level
+vim.opt.expandtab = true      -- Convert tabs to spaces
+vim.opt.termguicolors = true  -- Enable true colors
+vim.opt.cursorline = true     -- Highlight the current line
+vim.opt.scrolloff = 7         -- Lines to keep above/below cursor
+vim.opt.sidescrolloff = 7     -- Columns to keep left/right of cursor
 
 -- Key Mappings
 local keymap = vim.api.nvim_set_keymap
@@ -28,5 +28,19 @@ keymap('n', '<C-h>', ':tabprevious<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-.>', '<cmd>Copilot panel<CR>', { noremap = true, silent = true })
 -- Floaterm Keybindings
 vim.api.nvim_set_keymap('n', '<C-w>', ':FloatermNew<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-a>', [[:lua if vim.fn.expand('%:p') ~= '' then vim.cmd('FloatermNew --cwd=' .. vim.fn.expand('%:p:h')) else print("No file path available!") end<CR>]], { noremap = true, silent = true, expr = false })
-
+vim.api.nvim_set_keymap('n', '<C-a>',
+    [[:lua if vim.fn.expand('%:p') ~= '' then vim.cmd('FloatermNew --cwd=' .. vim.fn.expand('%:p:h')) else print("No file path available!") end<CR>]],
+    { noremap = true, silent = true, expr = false })
+-- Neogen Keybindings
+vim.api.nvim_set_keymap('n', '<C-a>', ':Neogen<CR>', { noremap = true, silent = true })
+-- Vimtex Keybindings
+vim.api.nvim_set_keymap("n", "<A-v>l", ":VimtexCompile<CR>", { noremap = true, silent = true }) -- Alt-v, l
+vim.api.nvim_set_keymap("n", "<A-v>v", ":VimtexView<CR>", { noremap = true, silent = true })    -- Alt-v, v
+vim.api.nvim_set_keymap("n", "<C-A-v>c", ":VimtexClean<CR>", { noremap = true, silent = true }) -- Ctrl-Alt-v, c
+-- Avante Keybindings
+vim.api.nvim_set_keymap("n", "<C-a>", ":lua require('avante').show_sidebar()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-r>", ":lua require('avante').refresh_sidebar()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-f>", ":lua require('avante').switch_sidebar_focus()<CR>",
+    { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-e>", ":lua require('avante').edit_selected_blocks()<CR>",
+    { noremap = true, silent = true })
