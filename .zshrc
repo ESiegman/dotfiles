@@ -50,9 +50,9 @@ alias chatgpt='openai-chatgpt-nativefier --enable-features=UseOzonePlatform --oz
 alias discord='vesktop --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-features=WebRTCPipeWireCapturer' 
 alias cat='bat'
 alias ls='exa --icons --tree --level=2 --color=always --group-directories-first --git'
-alias fastfetch-png='fastfetch --logo ~/.config/fastfetch/fastfetch.png --logo-height 16'
+alias fastfetch-png='fastfetch --logo ~/.config/fastfetch/fastfetch.png --logo-height 21'
 alias fastfetch-ascii='fastfetch --logo ~/.config/fastfetch/custom_logo.txt'
-alias git-configs='cd ~/system-scripts && ./config-sync.sh'
+alias git-configs='cd ~/system-scripts && ./config-sync.sh && cd'
 
 # Custom Functions
 function custom-commands-list {
@@ -329,6 +329,6 @@ function matlab() {
    ./matlab
 }
 
-fastfetch --logo ~/.config/fastfetch/fastfetch.png --logo-height 16 
+fastfetch-png
 task list
 
