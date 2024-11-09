@@ -7,20 +7,20 @@
 window {
   font-size: 14px;
   font-family: "JetBrains Mono";
-  background-color: #0D0F12;
+  background-color: #020203;
   border-radius: 8px;
   opacity: 1;
 }
 
 #outer-box {
   margin: 10px 10px 20px 10px;
-  background-color: #0D0F12;
+  background-color: #020203;
   opacity: 0.90;
 }
 
 #inner-box {
   margin: 10px;
-  background-color: #0D0F12;
+  background-color: #020203;
   opacity: 0.90;
 }
 
@@ -32,23 +32,23 @@ window {
 #entry #text {
   padding: 0px 0px 0px 10px;
   font-weight: normal;
-  color: #c7d9d2;
+  color: #c994dd;
 }
 
 #entry:selected {
-  background-color: #4D6F92;
+  background-color: #912EA0;
 }
 
 #entry:selected #text {
   padding: 0px 0px 0px 10px;
   font-weight: normal;
-  color: #0D0F12;
+  color: #020203;
 }
 
 #input {
   background: transparent;
   margin: 0px 5px 0px 20px;
-  color: #c7d9d2;
+  color: #c994dd;
   padding: 5px;
 }
 

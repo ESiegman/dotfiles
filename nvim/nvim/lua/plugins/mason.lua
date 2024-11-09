@@ -20,6 +20,7 @@ return {
                 "html",   -- HTML LSP
                 "cssls",  -- CSS LSP
                 "jsonls", -- JSON LSP
+                "nil_ls", -- Nil LSP 
             },
         })
 
@@ -54,5 +55,6 @@ return {
         lspconfig.html.setup {}    -- HTML LSP
         lspconfig.cssls.setup {}   -- CSS LSP
         lspconfig.jsonls.setup {}  -- JSON LSP
+        lspconfig.nil_ls.setup {}  -- Nix LSP
     end
 }

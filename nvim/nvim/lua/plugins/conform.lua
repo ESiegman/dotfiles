@@ -12,14 +12,13 @@ return {
                 java = { "google_java_format" }, -- Google Java Formatter for Java
                 lua = { "stylua" },              -- Stylua for Lua formatting
                 sh = { "shfmt" },                -- shfmt for Shell scripts (.sh)
-
-                -- Add other languages here
                 javascript = { "prettier" }, -- Prettier for JavaScript
                 typescript = { "prettier" }, -- Prettier for TypeScript
                 json = { "jq" },             -- JQ for JSON
                 html = { "prettier" },       -- Prettier for HTML
                 css = { "prettier" },        -- Prettier for CSS
                 markdown = { "prettier" },   -- Prettier for Markdown
+                nix = { "nixpkgs_fmt" },     -- Nixpkgs-fmt for Nix
             },
         })
 
