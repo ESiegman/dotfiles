@@ -14,7 +14,7 @@ cat <<EOL > "$WAYBAR_CSS"
 * {
   border: none;
   font-family: 'Fira Code', 'Symbols Nerd Font Mono';
-  font-size: 15px;
+  font-size: 13px;
   font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
   min-height: 1px;
   margin-bottom: 0;
@@ -29,7 +29,7 @@ window#waybar {
   border-radius: 10px;
   background-color: $BG_COLOR;
   color: $FG_COLOR;
-  margin-top: 15px;
+  margin-top: 5px;
   margin-right: 15px;
   padding-top: 1px;
   padding-left: 10px;
@@ -46,7 +46,7 @@ window#waybar {
   border-radius: 10px;
   background-color: $BG_COLOR;
   color: $FG_COLOR;
-  margin-top: 15px;
+  margin-top: 5px;
   padding-left: 10px;
   padding-right: 10px;
   margin-right: 15px;

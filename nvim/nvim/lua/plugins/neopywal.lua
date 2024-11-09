@@ -21,7 +21,6 @@ return {
     priority = 1000,
     config = function()
         require("neopywal").setup()
-        apply_pywal_colors()  -- Automatically apply pywal colors without transparency
+        apply_pywal_colors() -- Automatically apply pywal colors without transparency
     end
 }
-

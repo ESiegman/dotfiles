@@ -16,7 +16,7 @@ return {
                 type = "python",
                 request = "launch",
                 name = "Launch file",
-                program = "${file}", -- Debug the current file
+                program = "${file}",          -- Debug the current file
                 pythonPath = function()
                     return "/usr/bin/python3" -- Adjust this according to your Python setup
                 end,

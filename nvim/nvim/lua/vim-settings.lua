@@ -12,35 +12,36 @@ vim.opt.sidescrolloff = 7     -- Columns to keep left/right of cursor
 
 -- Key Mappings
 local keymap = vim.api.nvim_set_keymap
--- Telescope Keybindings
-keymap('n', '<C-p>', ':Telescope find_files<CR>', { noremap = true, silent = true })
-keymap('n', '<C-f>', ':Telescope live_grep<CR>', { noremap = true, silent = true })
-keymap('n', '<C-b>', ':Telescope buffers<CR>', { noremap = true, silent = true })
-keymap('n', '<C-h>', ':Telescope help_tags<CR>', { noremap = true, silent = true })
+
+-- Leader Key
+vim.g.mapleader = " "
+
+-- Telescope Keybindings with <leader> key
+keymap('n', '<leader>f', ':Telescope live_grep<CR>', { noremap = true, silent = true })  -- Search in files
+keymap('n', '<leader>b', ':Telescope buffers<CR>', { noremap = true, silent = true })    -- Open buffers
+keymap('n', '<leader>h', ':Telescope help_tags<CR>', { noremap = true, silent = true })  -- Help tags
+
+-- NvimTree and ToggleTerm
 keymap('n', '<M-e>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 keymap('n', '<M-t>', ':ToggleTerm direction=float<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>a',
+    [[:lua if vim.fn.expand('%:p') ~= '' then vim.cmd('FloatermNew --cwd=' .. vim.fn.expand('%:p:h')) else print("No file path available!") end<CR>]],
+    { noremap = true, silent = true, expr = false })
+
 -- Tab Management Keybindings
 keymap('n', '<C-t>', ':tabnew<CR>', { noremap = true, silent = true })
 keymap('n', '<C-l>', ':tabnext<CR>', { noremap = true, silent = true })
 keymap('n', '<C-h>', ':tabprevious<CR>', { noremap = true, silent = true })
---keymap('n', '<C-w>', ':tabclose<CR>', { noremap = true, silent = true })
--- Copilot Keybindings
-vim.api.nvim_set_keymap('n', '<C-.>', '<cmd>Copilot panel<CR>', { noremap = true, silent = true })
--- Floaterm Keybindings
-vim.api.nvim_set_keymap('n', '<C-w>', ':FloatermNew<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-a>',
-    [[:lua if vim.fn.expand('%:p') ~= '' then vim.cmd('FloatermNew --cwd=' .. vim.fn.expand('%:p:h')) else print("No file path available!") end<CR>]],
-    { noremap = true, silent = true, expr = false })
--- Neogen Keybindings
-vim.api.nvim_set_keymap('n', '<C-a>', ':Neogen<CR>', { noremap = true, silent = true })
--- Vimtex Keybindings
-vim.api.nvim_set_keymap("n", "<A-v>l", ":VimtexCompile<CR>", { noremap = true, silent = true }) -- Alt-v, l
-vim.api.nvim_set_keymap("n", "<A-v>v", ":VimtexView<CR>", { noremap = true, silent = true })    -- Alt-v, v
-vim.api.nvim_set_keymap("n", "<C-A-v>c", ":VimtexClean<CR>", { noremap = true, silent = true }) -- Ctrl-Alt-v, c
--- Avante Keybindings
-vim.api.nvim_set_keymap("n", "<C-a>", ":lua require('avante').show_sidebar()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-r>", ":lua require('avante').refresh_sidebar()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-f>", ":lua require('avante').switch_sidebar_focus()<CR>",
-    { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-e>", ":lua require('avante').edit_selected_blocks()<CR>",
-    { noremap = true, silent = true })
+keymap('n', '<C-w>', ':tabclose<CR>', { noremap = true, silent = true })
+
+-- Optional Copilot Keybinding with <leader> key
+vim.api.nvim_set_keymap('n', '<leader>c', '<cmd>Copilot panel<CR>', { noremap = true, silent = true })
+
+-- Neogen Keybindings for Documentation
+vim.api.nvim_set_keymap('n', '<leader>d', ':Neogen<CR>', { noremap = true, silent = true })
+
+-- Vimtex Keybindings with Alt-v variations
+vim.api.nvim_set_keymap("n", "<A-v>l", ":VimtexCompile<CR>", { noremap = true, silent = true })  -- Alt-v, l
+vim.api.nvim_set_keymap("n", "<A-v>v", ":VimtexView<CR>", { noremap = true, silent = true })     -- Alt-v, v
+vim.api.nvim_set_keymap("n", "<C-A-v>c", ":VimtexClean<CR>", { noremap = true, silent = true })  -- Ctrl-Alt-v, c
+
